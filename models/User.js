@@ -25,7 +25,15 @@ const userSchema = new Schema({
 		{
 			type: Schema.Types.ObjectId, ref: 'User'
 		}]
-});
-
+},
+  {
+		// sending my virtuals to json format
+    toJSON: {
+      virtuals: true,
+    },
+		id: false,
+  });
+// create a virtual called friendCount
+userSchema.virtual('friendCount') //need to add functionality to count friends once we have routes
 // create a user model using the userSchema
 const User = Model('User', userSchema);

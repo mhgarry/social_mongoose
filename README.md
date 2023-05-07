@@ -10,3 +10,4 @@ https://npm.io/package/mongoose
 https://www.geeksforgeeks.org/mongoose-virtuals/
 https://www.abstractapi.com/guides/email-validation-regex-javascript#should-you-validate-email-addresses-with-regular-expressions
 https://github.com/Automattic/mongoose
+https://futurestud.io/tutorials/understanding-virtuals-in-mongoose
