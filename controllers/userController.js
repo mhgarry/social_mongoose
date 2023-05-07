@@ -85,7 +85,7 @@ const UserController = {
 		};
 	},
 	//delete a friend by id
-	async deleteFriends(req, res) {
+	async deleteFriend(req, res) {
 		try {
 			// finds a user from the user model and deletes the specified friend from their friends list
 			const user = await User.findByIdAndUpdate(

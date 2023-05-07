@@ -38,6 +38,6 @@ const thoughtSchema = new Schema({
 
 thoughtSchema.virtual('reactionCount') // gets reaction count for thought model, have to go back later once routes are finished
 // creating a new model for user Thoughts
-const Thought = Model('Thought', thoughtSchema);
+const Thought = mongoose.model('thought', thoughtSchema)
 
 module.exports = Thought;

@@ -1,17 +1,17 @@
-const { Schema , Model } = require('mongoose');
+const { Schema , Model, default: mongoose } = require('mongoose');
 
 // make an instance of the schema class
 const userSchema = new Schema({
 	// define properties for username
 	userName: {
-		type: string,
+		type: String,
 		required: true,
 		unique: true,
 		trim: true,
 	},
 	// define the properties for a valid email
 	email: {
-		type: string,
+		type: String,
 		required: true,
 		unique: true,
 		match: /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm
@@ -36,4 +36,6 @@ const userSchema = new Schema({
 // create a virtual called friendCount
 userSchema.virtual('friendCount') //need to add functionality to count friends once we have routes
 // create a user model using the userSchema
-const User = Model('User', userSchema);
+const User = mongoose.model('user', userSchema);
+
+module.exports = User;
