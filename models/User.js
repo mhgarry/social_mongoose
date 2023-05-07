@@ -18,9 +18,14 @@ const userSchema = new Schema({
 		},
 	// reference an array of id's inside the user's thoughts model
 	thoughts: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Thought'
-	}]
+		type: Schema.Types.ObjectId, ref: 'Thought'
+	}],
+  // reference an array of id's inside the user's friends model
+	friends: [
+		{
+			type: Schema.Types.ObjectId, ref: 'User'
+		}]
+});
 
-	}
-})
+// create a user model using the userSchema
+const User = Model('User', userSchema);

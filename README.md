@@ -9,3 +9,4 @@ https://www.freecodecamp.org/news/build-a-restful-api-using-node-express-and-mon
 https://npm.io/package/mongoose
 https://www.geeksforgeeks.org/mongoose-virtuals/
 https://www.abstractapi.com/guides/email-validation-regex-javascript#should-you-validate-email-addresses-with-regular-expressions
+https://github.com/Automattic/mongoose
