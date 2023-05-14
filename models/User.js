@@ -1,41 +1,48 @@
-const { Schema , Model, default: mongoose } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-// make an instance of the schema class
-const userSchema = new Schema({
-	// define properties for username
-	userName: {
-		type: String,
-		required: true,
-		unique: true,
-		trim: true,
-	},
-	// define the properties for a valid email
-	email: {
-		type: String,
-		required: true,
-		unique: true,
-		match: /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm
-		},
-	// reference an array of id's inside the user's thoughts model
-	thoughts: [{
-		type: Schema.Types.ObjectId, ref: 'Thought'
-	}],
-  // reference an array of id's inside the user's friends model
-	friends: [
-		{
-			type: Schema.Types.ObjectId, ref: 'User'
-		}],
-},
+const userSchema = new Schema(
   {
-		// sending my virtuals to json format
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+			// creating properties for the email field in our User model
+
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, "Must match an email address!"],
+    },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
+		// Array of _id values referencing the Thought model
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      },
+    ],
+  },
+  {
     toJSON: {
       virtuals: true,
     },
-		id: false,
-  });
-// create a virtual called friendCount
-userSchema.virtual('friendCount') //need to add functionality to count friends once we have routes
-// create a user model using the userSchema
-const User = mongoose.model('user', userSchema);
+    id: false,
+  }
+);
+		// Array of _id values referencing the friends virtual
+
+userSchema.virtual('friendsCount').get(function () {
+  return this.friends.length;
+});
+
+const User = model('user', userSchema);
 
 module.exports = User;

@@ -1,43 +1,41 @@
-const { Schema, Model } = require('mongoose');
-const User = require('./User');
-// creating a new Schema for the user thoughts/posts
+const { Schema, model } = require('mongoose');
+const moment = require('moment');
+// creating a new schema for user thoughts
 const thoughtSchema = new Schema({
-	// creating properties of the user thought posts
-	thoughtText: {
+  //creating properties for thought posts
+  thoughtText: {
 		type: String,
 		required: true,
-		minLength: 1,
-		maxLength: 280
+    minlength: 1,
+    maxLength: 280
 	},
-	// creating properties to get the date and time stamp for a thoughts post
-	createdAt: {
+  // creating properties for date and time of thought post
+  createdAt: {
 		type: Date,
-		date: Date.now,
-		timeStamp: true,
+		default: Date.now,
 		required: true,
-		get: (createdAtVal) => dateFormat(createdAtVal)
-	},
-	// referencing the User model to get the username to associate with a thoughts post
-	username: {
-		type: String,
-		required: true,
-		ref: 'User'
-	},
-	// creating a virtual property to get the reaction count for a thoughts post
-	reactions: [{
-		type: Schema.Types.ObjectID,
-		parent: 'Thought',
-		ref: 'Reaction',
-	}],
-	toJson: {
-		virtuals: true,
-		getters: true,
-	},
-	id: false
+		get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+  },
+  // referencing User model to pass in the user name
+  username: {
+    type: String,
+    ref: 'user',
+    required: true,
+    unique: true,
+  },
+  // creating a virtual property to get reaction count of a thought
+  reactions: [{
+    type: Schema.Types.ObjectId,
+    ref: 'reaction',
+  }],  toJSON: {
+    virtual: true,
+    getters: true,   },
+  id: false,
 });
 
-thoughtSchema.virtual('reactionCount') // gets reaction count for thought model, have to go back later once routes are finished
-// creating a new model for user Thoughts
-const Thought = mongoose.model('thought', thoughtSchema)
+thoughtSchema.virtual('reactionCount');
 
-module.exports = Thought;
+const Thought = model('thought', thoughtSchema);
+
+
+module.exports =  Thought;
