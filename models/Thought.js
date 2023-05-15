@@ -8,7 +8,7 @@ const thoughtSchema = new Schema(
 			type: String,
 			required: true,
 			minLength: 1,
-			maxLength: 300
+			maxLength: 280
 		},
 		// date and time thought is created at
 		createdAt: {

@@ -13,3 +13,4 @@ https://github.com/Automattic/mongoose
 https://futurestud.io/tutorials/understanding-virtuals-in-mongoose
 https://livebook.manning.com/book/get-programming-with-node-js/chapter-15
 https://kb.objectrocket.com/mongo-db/the-mongoose-in-operator-1015
+https://www.mongodb.com/developer/products/mongodb/seed-database-with-fake-data/
