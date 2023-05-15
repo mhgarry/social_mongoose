@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 const userController = {
 	// get all users
-	async getAllUsers (req, req ) {
+	async getAllUsers (req, res ) {
 		try {
 			const user = await User.find().select('-__v');
 			res.json(user);
@@ -33,7 +33,7 @@ async createUser (req, res) {
 		res.json(user);
 	} catch(err) {
 		console.log(err);
-		res.status(500).json(err)p;
+		res.status(500).json(err);
 	}
 },
 // update a user
