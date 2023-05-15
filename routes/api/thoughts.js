@@ -9,3 +9,6 @@ const {
 	addReaction,
 	removeReaction
 } = require('../../controllers/thoughtController');
+// get all thoughts
+router.route('/thoughts').get(getThoughts);
+router.post('/thoughts', createThought);

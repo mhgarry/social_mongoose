@@ -11,18 +11,18 @@ const {
 } = require('../../controllers/userController')
 
 // get all users route
-router.route('/').get(getAllUsers);
+router.route('/users').get(getAllUsers);
 // create user route
-router.route('/').post(createUser)
+router.route('/users').post(createUser)
 // get single user routes
-router.route('/:id').get(getSingleUser);
+router.route('/users:id').get(getSingleUser);
 // update a user
-router.route('/:id').put(updateUser);
+router.route('/users:id').put(updateUser);
 // delete a user
-router.route('/:id').delete(deleteUser);
+router.route('/users:id').delete(deleteUser);
 // get friends
-router.route('/:id/friends').post(addFriend);
+router.route('/users:userId/friends').post(addFriend);
 // remove friend
-router.route('/:id/friends/:id').delete(removeFriend);
+router.route('/user:userId/friends/:friendId').delete(removeFriend);
 
 module.exports = router;
