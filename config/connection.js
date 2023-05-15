@@ -4,7 +4,7 @@ const mongoose = require('mongoose'); // import mongoose orm library
 
 mongoose.set('strictQuery', false); // turn off strict query mode since mongoose will give errors
 mongoose.connection.setMaxListeners(Infinity); // set's the max amount of listeners to as many as possible so mongoose wont throw errors
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
   useUnifiedTopology: true,
 }); // connect to the database

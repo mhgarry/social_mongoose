@@ -67,12 +67,12 @@ user4.thoughts.push(thought4);
 user5.thoughts.push(thought5);
 user6.thoughts.push(thought6);
 // save updated user data
-user1.save();
-user2.save();
-user3.save();
-user4.save();
-user5.save();
-user6.save();
+await user1.save();
+await user2.save();
+await user3.save();
+await user4.save();
+await user5.save();
+await user6.save();
 
 console.log('Database seeded!');
 	} catch (err) {
