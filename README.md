@@ -12,3 +12,4 @@ https://www.abstractapi.com/guides/email-validation-regex-javascript#should-you-
 https://github.com/Automattic/mongoose
 https://futurestud.io/tutorials/understanding-virtuals-in-mongoose
 https://livebook.manning.com/book/get-programming-with-node-js/chapter-15
+https://kb.objectrocket.com/mongo-db/the-mongoose-in-operator-1015
