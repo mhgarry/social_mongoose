@@ -20,8 +20,7 @@ const thoughtSchema = new Schema(
 		username: {
 			type: String,
 			ref: 'user',
-			required: true,
-			unique: true,
+			required: true
 		},
 		// create an array for reactions
 		reactions: [
